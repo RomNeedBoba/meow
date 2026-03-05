@@ -1,0 +1,163 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-surface);
+  flex-shrink: 0;
+  z-index: 100;
+}
+
+.topbar__left,
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Logo */
+.topbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  margin-right: 4px;
+}
+/* Add this to your existing Topbar.css */
+
+.topbar__logo-img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+.topbar__title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Icon button */
+.topbar__icon-btn {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.15s, color 0.15s;
+}
+.topbar__icon-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* Language button */
+.topbar__lang-wrap {
+  position: relative;
+}
+
+.topbar__lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.topbar__lang-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.topbar__lang-label {
+  white-space: nowrap;
+}
+
+.topbar__chevron {
+  transition: transform 0.15s;
+}
+.topbar__chevron.is-up {
+  transform: rotate(180deg);
+}
+
+/* Menu wrap */
+.topbar__menu-wrap {
+  position: relative;
+}
+
+/* Dropdown */
+.topbar__dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 180px;
+  padding: 4px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px var(--shadow);
+  z-index: 200;
+  animation: dropdown-in 0.12s ease;
+}
+
+.topbar__dropdown--right {
+  left: auto;
+  right: 0;
+}
+
+@keyframes dropdown-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.topbar__dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-family: inherit;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.1s;
+}
+.topbar__dropdown-item:hover {
+  background: var(--bg-hover);
+}
+.topbar__dropdown-item.is-active {
+  font-weight: 600;
+  color: var(--accent);
+}
+.topbar__dropdown-item svg {
+  flex-shrink: 0;
+  color: var(--text-secondary);
+}
+.topbar__dropdown-item.is-active svg {
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .topbar__lang-label { display: none; }
+  .topbar__title { font-size: 13px; }
+}

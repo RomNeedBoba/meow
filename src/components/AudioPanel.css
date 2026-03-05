@@ -1,0 +1,10 @@
+.audio-card {
+  width: 100%;
+  margin: 0;
+  padding: 16px;
+  border: 0;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 0;
+  background: #fff;
+}
+.audio-player { width: 100%; }

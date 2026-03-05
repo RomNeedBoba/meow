@@ -1,0 +1,174 @@
+.header {
+  width: 100%;
+  max-width: 100vw;
+  min-height: 84px;
+  padding: 0 16px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.header__logo {
+  width: 142px;
+  height: 80px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  flex-shrink: 0;
+}
+
+.header__btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #111111;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.header__btn:hover {
+  color: #000000;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.header__hamburger {
+  display: none;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.header__hamburger span {
+  width: 18px;
+  height: 2px;
+  background: #111111;
+  display: block;
+}
+
+.feedbackOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+}
+
+.feedbackModal {
+  width: min(680px, 100%);
+  background: #fff;
+  border: 1px solid #e5e7eb;
+}
+
+.feedbackModal__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.feedbackModal__close {
+  border: 0;
+  background: transparent;
+  color: #111;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.feedbackForm {
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.feedbackLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+}
+
+.feedbackInput,
+.feedbackTextarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111;
+  padding: 10px 12px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.feedbackSubmit {
+  border: 1px solid #111;
+  background: transparent;
+  color: #111;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.feedbackSubmit:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .header {
+    min-height: 76px;
+    padding: 0 12px;
+  }
+
+  .header__hamburger {
+    display: inline-flex;
+  }
+
+  .header__right {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    box-sizing: border-box;
+  }
+
+  .header__right.is-open {
+    display: flex;
+  }
+}
