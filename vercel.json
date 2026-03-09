@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/audio/:path*",
+      "destination": "https://conscious-shame-reasons-province.trycloudflare.com/audio/:path*"
+    },
+    {
+      "source": "/synthesize",
+      "destination": "https://conscious-shame-reasons-province.trycloudflare.com/synthesize"
+    },
+    {
+      "source": "/health",
+      "destination": "https://conscious-shame-reasons-province.trycloudflare.com/health"
+    }
+  ]
+}
