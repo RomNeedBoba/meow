@@ -107,8 +107,8 @@ export default function App() {
   const [language, setLanguage] = useState("km");
 
   const [text, setText] = useState("");
-  const [model, setModel] = useState("Research Model v1");
-  const [voice, setVoice] = useState("female_1");
+  const [model, setModel] = useState("Model v1");
+  const [voice, setVoice] = useState("Sokriya");
   const [format, setFormat] = useState("wav");
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState(() => loadHistory());
