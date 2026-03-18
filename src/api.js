@@ -15,7 +15,6 @@ export async function apiTts(req) {
   const data = await res.json();
 
   if (data.stage4_audio_url) {
-    // Extract just the /audio/xxx.wav path
     let audioPath;
     try {
       const parsed = new URL(data.stage4_audio_url);
@@ -24,16 +23,16 @@ export async function apiTts(req) {
       audioPath = data.stage4_audio_url;
     }
 
-    console.log("Fetching audio from:", audioPath);
+    console.log("Fetching audio from:", `${BACKEND}${audioPath}`);
 
-    // This goes through Vite proxy → Python server (port 8000)
-    const audioRes = await fetch(audioPath);
+    // ✅ FIX HERE
+    const audioRes = await fetch(`${BACKEND}${audioPath}`);
+
     if (!audioRes.ok) {
       throw new Error(`Audio fetch failed: ${audioRes.status}`);
     }
 
     const blob = await audioRes.blob();
-    console.log("Audio blob size:", blob.size, "type:", blob.type);
 
     return {
       ...data,
