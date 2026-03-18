@@ -1,4 +1,4 @@
-const BACKEND = "https://copying-organizer-regional-induction.trycloudflare.com";
+const BACKEND = "https://api.khtts.me";
 
 export async function apiTts(req) {
   const res = await fetch(`${BACKEND}/api/tts`, {
