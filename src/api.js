@@ -1,4 +1,4 @@
-const BACKEND = "https://api.khtts.me";
+const BACKEND = "http://116.197.154.50:8000";
 
 export async function apiTts(req) {
   const res = await fetch(`${BACKEND}/api/tts`, {
