@@ -15,21 +15,19 @@ export async function apiTts(req) {
   const data = await res.json();
 
   if (data.stage4_audio_url) {
-    let audioPath;
-    try {
-      const parsed = new URL(data.stage4_audio_url);
-      audioPath = parsed.pathname;
-    } catch {
-      audioPath = data.stage4_audio_url;
+    let audioUrl = data.stage4_audio_url;
+
+    // Convert relative path to absolute URL
+    if (!/^https?:\/\//i.test(audioUrl)) {
+      audioUrl = `${BACKEND}${audioUrl.startsWith("/") ? "" : "/"}${audioUrl}`;
     }
 
-    console.log("Fetching audio from:", `${BACKEND}${audioPath}`);
+    console.log("Fetching audio from:", audioUrl);
 
-    // ✅ FIX HERE
-    const audioRes = await fetch(`${BACKEND}${audioPath}`);
-
+    const audioRes = await fetch(audioUrl);
     if (!audioRes.ok) {
-      throw new Error(`Audio fetch failed: ${audioRes.status}`);
+      const errText = await audioRes.text().catch(() => "");
+      throw new Error(`Audio fetch failed: ${audioRes.status} ${errText}`);
     }
 
     const blob = await audioRes.blob();
